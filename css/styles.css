@@ -1,0 +1,845 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(148, 41, 249);
+    height: 150px;
+}
+
+.header-logo {
+    height: 180px;
+    width: 200px;
+}
+
+.header-menu {
+    background-color: rgb(148, 41, 249);
+}
+
+.header-menu a{
+    color: white;
+    text-decoration: none;
+}
+.header-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+
+
+
+.header-menu li {
+    display: inline-block;  
+    margin-right: 20px;
+    
+}
+
+.header-menu li:last-child {
+    margin-right: 0;
+}
+
+
+
+
+
+
+
+
+/*carrito */
+.bi.bi-cart4 {
+
+    color: #f6f6f6;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.numerito {
+    color: #f6f6f6;
+    margin-right: 20px;
+}
+
+
+.bi-arrow-return-left {
+    color: #f6f6f6;
+    margin-left: 10px;
+}
+
+.boton-volver {
+    color: #f6f6f6;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    position: relative;
+    padding: 8px 13px;
+    cursor: pointer;
+}
+
+
+.carrito-titulo h2 {
+    font-size: 35px;
+    background-color: #D7CCE1;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+.carrito-vacio {
+    font-size: 25px;
+    color: black;
+    text-align: center;
+}
+
+.carrito-producto img {
+    width: 6rem;
+    border-radius: 1rem;
+}
+
+
+.carrito-producto h5 {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.carrito-producto small {
+    font-size: .75rem;
+    color: black;
+}
+
+.contenedor-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carrito-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D7CCE1;
+    color: #D7CCE1;
+    columns: #D7CCE1;
+    padding: .5rem;
+    border-radius: 1rem;
+    margin: 30px;
+}
+
+.carrito-producto-eliminar {
+    border: 0;
+    width: 2rem;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.carrito-acciones-vaciar {
+    border: 0;
+    background-color: #8459B0;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.carrito-acciones-derecha {
+    display: flex;
+    margin-right: 20px;
+}
+
+.carrito-acciones-total {
+    display: flex;
+    background-color: #8459B0;
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    text-transform: uppercase;
+    gap: 1rem;
+}
+
+
+.carrito-acciones-comprar a {
+    text-decoration: none;
+    border: 0;
+    background-color: #7848A8;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+}
+
+
+/* tarjeta de credito */
+
+body {
+    background: ghostwhite;
+    font-family: 'Lato', sans-serif;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---------- Estilos Generales de las Tarjetas ----------*/
+.tarjeta {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #fff;
+    transition: .3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.tarjeta.active {
+    transform: rotateY(180deg);
+}
+
+.tarjeta>div {
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+}
+
+/* ---------- Tarjeta Delantera ----------*/
+
+.tarjeta .delantera {
+    width: 100%;
+    background: url(../img/tarjeta1.jpeg);
+    background-size: cover;
+}
+
+.delantera .logo-marca {
+    text-align: right;
+    min-height: 50px;
+}
+
+.delantera .logo-marca img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 80px;
+}
+
+.delantera .chip {
+    width: 100%;
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.delantera .grupo .label {
+    font-size: 16px;
+    color: #7d8994;
+    margin-bottom: 5px;
+}
+
+.delantera .grupo .numero,
+.delantera .grupo .nombre,
+.delantera .grupo .expiracion {
+    color: #fff;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.delantera .flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* ---------- Tarjeta Trasera ----------*/
+.trasera {
+    background: url(../img/tarjeta2.jpeg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+
+.trasera .barra-magnetica {
+    height: 40px;
+    background: #000;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+
+.trasera .datos {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.trasera .datos p {
+    margin-bottom: 5px;
+}
+
+
+
+.trasera .datos #firma {
+    width: 70%;
+}
+
+.trasera .datos #firma .firma {
+    height: 40px;
+    background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+
+.trasera .datos #firma .firma p {
+    line-height: 40px;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    color: #000;
+    font-size: 30px;
+    padding: 0 10px;
+    text-transform: capitalize;
+}
+
+.trasera .datos #ccv {
+    width: 20%;
+}
+
+.trasera .datos #ccv .ccv {
+    background: #fff;
+    height: 40px;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.trasera .leyenda {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.trasera .link-banco {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ---------- Contenedor Boton ----------*/
+.contenedor-btn .btn-abrir-formulario {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    background: #000;
+    color: #fff;
+    position: relative;
+    top: -25px;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: -5px 4px 8px rgba(24, 56, 182, 0.4);
+    padding: 5px;
+    transition: all .2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.contenedor-btn .btn-abrir-formulario:hover {
+    background: #606062;
+}
+
+.contenedor-btn .btn-abrir-formulario.active {
+    transform: rotate(45deg);
+}
+
+/* ---------- Formulario Tarjeta */
+
+.formulario-tarjeta {
+    background: #B49FCC;
+    width: 100%;
+    max-width: 700px;
+    padding: 150px 30px 30px 30px;
+    border-radius: 10px;
+    position: relative;
+    top: -150px;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .3s ease-out;
+}
+
+.formulario-tarjeta.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+
+.formulario-tarjeta label {
+    display: block;
+    color: black;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.formulario-tarjeta input,
+.formulario-tarjeta select,
+.btn-enviar {
+    border: 2px solid #CED6E0;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: .3s ease all;
+    border-radius: 5px;
+}
+
+
+.formulario-tarjeta input:hover,
+.formulario-tarjeta select:hover {
+    border: 2px solid #93BDED;
+}
+
+
+.formulario-tarjeta input:focus,
+.formulario-tarjeta select:focus {
+    outline: rgb(4, 4, 4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
+}
+
+
+.formulario-tarjeta input {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+    width: 100%;
+}
+
+.formulario-tarjeta .ccv {
+    min-width: 100px;
+}
+
+.formulario-tarjeta .grupo-select {
+    width: 100%;
+    margin-right: 15px;
+    position: relative;
+
+}
+
+.formulario-tarjeta select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+
+
+.formulario-tarjeta .grupo-select i {
+    position: absolute;
+    color: #CED6E0;
+    top: 18px;
+    right: 15px;
+    transition: .3s ease all;
+}
+
+.formulario-tarjeta .grupo-select:hover i {
+    color: #93bfed;
+}
+
+.formulario-tarjeta .btn-enviar {
+    border: none;
+    padding: 10px;
+    font-size: 22px;
+    color: #fff;
+    background: #1d1e1e;
+    box-shadow: 2px 2px 10px 0px rgba(36, 36, 37, 0.4);
+    cursor: pointer;
+}
+
+.formulario-tarjeta .btn-enviar:hover {
+    background: #4b0766;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+    background-image: url(../img/fondoLogueo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+
+}
+
+.hero h1 {
+    color: #eff4f4;
+    font-size: 70px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.hero p {
+    -webkit-text-stroke: 1px black;
+    color: white;
+    font-size: 40px;
+}
+
+.ingreso h2 {
+    color: black;
+    font-size: 50px;
+    text-align: center;
+}
+
+.carrusel {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.carrusel img {
+    width: 100%;
+    height: 70vh;
+    object-fit: contain;
+}
+
+.linkeo {
+    text-decoration: none;
+    color: black;
+    background-color: #ebf0f1;
+    padding: 5px;
+    border-radius: 13px;
+    font-size: 15px;
+}
+
+
+.section-titulo {
+    font-size: 1.75rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+/*productos */
+
+
+#contenedor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.card {
+    max-width: 300px;
+    margin: 0 20px;
+    margin-top: 25px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.card-img-top {
+    transition: box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+.card-img-top:hover {
+    box-shadow: 0px 5px 8px rgba(26, 26, 26, 0.4);
+}
+
+.card-title {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-card {
+    padding: 7px;
+    background-color: #1a1a1a;
+    color: #f6f6f6;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.btn-card:hover {
+    background-image: linear-gradient(to bottom, #ff9a9a, #fbadad);
+    color: #1a1a1a;
+}
+
+/*formulario*/
+
+#contenedor {
+    height: 100%;
+    width: 100%;
+    background-color: #F4F7F5;
+}
+
+.divContenedor {
+    height: 100%;
+}
+
+
+.divTexto {
+    
+    padding-left: 10%;
+    padding-top: 15px;
+}
+
+
+.h2 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 25px;
+    text-align: center;
+}
+
+.divGrid {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "form info";
+}
+
+.divForm {
+    grid: form;
+    width: 80%;
+    margin: auto;
+}
+
+.divForm form {
+    background-color: white;
+    margin: 30px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+}
+
+.divForm form label {
+    margin-left: 8px;
+}
+
+.divForm form input {
+    height: 45px;
+    border-radius: 8px;
+    margin: 8px;
+    padding: 8px;
+}
+
+.inputComentario {
+    height: 100px;
+}
+
+.botonForm {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background-color: #BC9FBB;
+    width: 97%;
+    margin-left: 6px;
+}
+
+.info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.info div {
+    margin-bottom: 16px;
+}
+
+.info div p span {
+    font-weight: 600;
+    font-size: medium;
+    margin-bottom: 2px;
+}
+
+
+
+
+.resultados {
+    position: fixed;
+    right: 1%;
+    padding: 5px;
+    bottom: 100px;
+    align-items: center;
+    background-color: #F1C9D6;
+    width: 200px;
+    height: 121 px;
+    text-align: center;
+    border-radius: 5px 5px 5px 5px
+}
+
+.resultados h3 {
+    margin-bottom: 10px;
+}
+
+/* Estilos para mensajes */
+p.mensaje {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/*preguntas */
+.preg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.preg-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.preg-lista__item {
+    min-height: 150px;
+}
+
+.preg-lista__item details {
+    text-align: center;
+    font-weight: bold;
+}
+
+.preg-lista__item details summary {
+    font-size: 20px;
+    color: whitesmoke;
+    background-color: #BC5FAB;
+
+    border-radius: 5px;
+    width: 90vw;
+}
+
+.preg-lista__item details[open] {
+    background-color: #975bc0;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.preg-lista__item details[open] summary {
+    text-shadow: 0 1px 3px rgba(202, 100, 236, 0.6431372549);
+    box-shadow: none;
+    border-bottom: solid 1px #184358;
+    border-radius: 0;
+}
+
+.preg-lista__item details[open] p {
+    font-weight: lighter;
+    color: white;
+    max-width: 85vw;
+    margin-top: 10px;
+    padding-bottom: 15px;
+    margin-left: 20px;
+}

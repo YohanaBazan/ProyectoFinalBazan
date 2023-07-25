@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script defer src="../js/tienda.js"></script>
+    <title>TIENDA|SKULL WORLD</title>
+</head>
+
+<body class="body-index">
+    <header class="header">
+        <div class="header-1">
+            <a href="/index.html"><img class="header-logo" src="../img/logo.png" alt="Logo"></a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar producto" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Buscar</button>
+            </form>
+            <div class="car">
+                <a class="boton-carrito" href="/pages/carrito.html">
+                    <i class="bi bi-cart4"></i> <span id="numerito" class="numerito">0</span>
+                </a>
+            </div>
+        </div>
+        <nav class="header-menu">   
+                <ul>
+                    <li class="header-menu__item"><a href="/pages/tienda.html">Productos</a></li>
+                    <li class="header-menu__item"><a href="/pages/preguntas.html">Preguntas frecuentes</a></li>
+                    <li class="header-menu__item"><a href="/pages/contacto.html">Contacto</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <!-- titulo -->
+            <div class="row">
+                <h2 class="section-titulo" id="tituloCatalogo"></h2>
+            </div>
+            <!-- section catalogo -->
+            <section class="row">
+                <!-- select -->
+                <div class="row justify-content-center mx-0 px-0">
+                    <select id="selectOrden" class="col-8 col-md-4 col-lg-3 my-3 form-select-sm p-2"
+                        aria-label="Default select example">
+                        <option selected="" value="ultimos">Ordenar por los últimos</option>
+                        <option value="menorMayor">Ordenar por precio: menor a mayor</option>
+                        <option value="mayorMenor">Ordenar por precio: mayor a menor</option>
+                    </select>
+                </div>
+                <!-- productos catalogo -->
+                <div class="container-fluid px-1 px-sm-2 px-lg-3 px-xxl-5">
+                    <div id="contenedor-cards" class="my-2 mx-1 mx-sm-2 mx-lg-3 mx-xxl-4 p-0">
+
+                        <div class="card">
+                            <a href="#"><img src="../img/pantalones/16.png" class="card-img-top"
+                                    alt="Pantalón ancho"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Pantalón Look at me</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="12">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$2500</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/pantalones/14.png" class="card-img-top"
+                                    alt="Pantalón jean"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Pantalón Disaster</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="11">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$2200</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/pantalones/12.png" class="card-img-top"
+                                    alt="Pantalón cargo"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Pantalón Skull</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="10">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$2000</h6>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card">
+                            <a href="#"><img src="../img/faldas-shorts/28.png" class="card-img-top"
+                                    alt="Falda Snake"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Falda Snake</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="9">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1800</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/faldas-shorts/26.png" class="card-img-top"
+                                    alt="Short Skull"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Short Skull</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="8">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1500</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/faldas-shorts/18.png" class="card-img-top"
+                                    alt="Pollera Esotérica"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Pollera Esotérica</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="7">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1300</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/buzos/10.png" class="card-img-top"
+                                    alt="Buzo Rose"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Buzo Rose</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="6">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1800</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/buzos/7.png" class="card-img-top"
+                                    alt="Buzo Tumba"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Buzo Tumba</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="5">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1500</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/buzos/5.png" class="card-img-top"
+                                    alt="Buzo Dance"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Buzo Dance</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="4">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1500</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/remeras - tops/20.png" class="card-img-top"
+                                    alt="Remeron Lovers"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Remeron Lovers</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="3">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1200</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/remeras - tops/3.png" class="card-img-top"
+                                    alt="Musculosa Coffee"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Musculosa Coffee</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="2">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$900</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <a href="#"><img src="../img/remeras - tops/1.png" class="card-img-top"
+                                    alt="Crop top Mariposa"></a>
+                            <div class="card-body px-0">
+                                <h5 class="card-title">Crop top Mariposa</h5>
+                                <div class="row align-items-center">
+                                    <button class="botonCards btn-card col-6 col-xl-7 offset-1"
+                                        data-id="1">Agregar</button>
+                                    <h6 class="card-subtitle text-muted col-5 col-xl-4">$1000</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+<footer>
+
+</footer>
+
+<!-- JavaScript -->
+<script src="/js/carrito.js"></script>
+<script src="/js/tienda.js"></script>
+<script src="/js/busqueda.js"></script>
+
+<footer>
+    <p>SKULL WORLD &copy; 2023. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+
+</html>
