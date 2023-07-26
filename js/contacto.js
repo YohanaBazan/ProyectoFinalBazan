@@ -41,54 +41,49 @@ class Consulta {
         this.nombre = nombre;
         this.telefono = telefono;
         this.comentario = comentario;
-    }
-}
+    };
+};
+
 
 const form = document.getElementById("form");
-const mensaje = document.createElement("p");
-mensaje.style.display = "none";
-form.appendChild(mensaje);
 
-form.addEventListener("submit", (e) => {
+form.onsubmit = (e) =>{
     e.preventDefault();
+    const nombre = document.getElementById ("nombre");
+    const tlf = document.getElementById ("tlf");
+    const comentario = document.getElementById ("comentario");
 
-    const nombre = document.getElementById("nombre");
-    const telefono = document.getElementById("telefono");
-    const comentario = document.getElementById("comentario");
+if (nombre.value === "" || telefono.value === "" || comentario.value === "" ){
+    Toastify({
+        text: "Por favor complete todos los campos",
+        duration: 3000,
+        gravity:"top",
+        position: "right",
+        destination: "",
+        style :{
+            background: "red" ,
+            color : "black"
+        }
+        }).showToast();
+} else{
+    Toastify({
+        text: "Consulta enviada",
+        duration: 3000,
+        gravity:"top",
+        position: "right",
+        destination: "",
+        style :{
+            background: "linear-gradient(to right, #ffdde1, #febbbc)" ,
+            color : "black"
+        }
+        }).showToast();
+    const consulta = new Consulta (nombre.value, telefono.value, comentario.value);
+    form.reset();
 
-    if (nombre.value === "" || telefono.value === "" || comentario.value === "") {
-        mensaje.textContent = "Por favor complete todos los campos";
-        mensaje.style.display = "block";
-    } else {
-        mensaje.textContent = "Consulta enviada";
-        mensaje.style.display = "block";
-        const consulta = new Consulta(nombre.value, telefono.value, comentario.value);
-        form.reset();
+    const consultaJson = JSON.stringify(consulta);
 
-        const consultaJson = JSON.stringify(consulta);
-
-        localStorage.setItem("consulta", consultaJson);
-    }
-});
-function mostrarResultados(consulta) {
-    const resultadosContainer = document.getElementById("resultados");
-    resultadosContainer.innerHTML = "";
-
-    const resultados = document.createElement("div");
-    resultados.className = "resultados";
-    resultados.innerHTML = `
-        <h3>Última consulta:</h3>
-        <p>Nombre: ${consulta.nombre}</p>
-        <p>Teléfono: ${consulta.telefono}</p>
-        <p>Comentario: ${consulta.comentario}</p>
-    `;
-
-    resultadosContainer.appendChild(resultados);
+    localStorage.setItem("consulta", consultaJson);
 }
 
+};
 
-const consultaGuardada = localStorage.getItem("consulta");
-if (consultaGuardada) {
-    const consulta = JSON.parse(consultaGuardada);
-    mostrarResultados(consulta);
-}

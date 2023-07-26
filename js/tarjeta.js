@@ -1,137 +1,71 @@
-const tarjeta = document.querySelector('#tarjeta'),
-    btnAbrirFormulario = document.querySelector('#btn-abrir-formulario'),
-    formulario = document.querySelector('#formulario-tarjeta'),
-    numeroTarjeta = document.querySelector('#tarjeta .numero'),
-    nombreTarjeta = document.querySelector('#tarjeta .nombre'),
-    logoMarca = document.querySelector('#logo-marca'),
-    firma = document.querySelector('#tarjeta .firma p'),
-    mesExpiracion = document.querySelector('#tarjeta .mes'),
-    yearExpiracion = document.querySelector('#tarjeta .year');
-ccv = document.querySelector('#tarjeta .ccv');
+//getItem recupera los datos del localStorage, si no hay nada guardado carrito es un array vacio
+let carrito = JSON.parse(localStorage.getItem("carritoJson")) || []
 
-const mostrarFrente = () => {
-	if(tarjeta.classList.contains('active')){
-		tarjeta.classList.remove('active');
-	}
-}
+const productContainer = document.getElementById("product-container")
 
-tarjeta.addEventListener('click', () => {
-    tarjeta.classList.toggle('active');
-});
+const verCarrito = document.getElementById("verCarrito")
 
-btnAbrirFormulario.addEventListener('click', () => {
-    btnAbrirFormulario.classList.toggle('active');
-    formulario.classList.toggle('active');
-});
+const modalContainer = document.getElementById("modal-container")
 
-for (let i = 1; i <= 12; i++) {
-    let opcion = document.createElement('option');
-    opcion.value = i;
-    opcion.innerText = i;
-    formulario.selectMes.appendChild(opcion);
-}
-
-const yearActual = new Date().getFullYear();
-for (let i = yearActual; i <= yearActual + 8; i++) {
-    let opcion = document.createElement('option');
-    opcion.value = i;
-    opcion.innerText = i;
-    formulario.selectYear.appendChild(opcion);
-}
-
-formulario.inputNumero.addEventListener('keyup', (e) => {
-    let valorInput = e.target.value;
-
-    formulario.inputNumero.value = valorInput
-
-        .replace(/\s/g, '')
-        .replace(/\D/g, '')
-        .replace(/([0-9]{4})/g, '$1 ')
-        .trim();
-
-    numeroTarjeta.textContent = valorInput;
-
-    if (valorInput == '') {
-        numeroTarjeta.textContent = '#### #### #### ####';
-
-        logoMarca.innerHTML = '';
-    }
-
-    if (valorInput[0] == 4) {
-        logoMarca.innerHTML = '';
-        const imagen = document.createElement('img');
-        imagen.src = '../img/visa (1).png';
-        logoMarca.appendChild(imagen);
-    } else if (valorInput[0] == 5) {
-        logoMarca.innerHTML = '';
-        const imagen = document.createElement('img');
-        imagen.src = '../img/mastercard.png';
-        logoMarca.appendChild(imagen);
-    }
+const cantidadCarrito = document.getElementById("cantidadCarrito")
 
 
-    mostrarFrente();
-});
+const getProducts = async () => {
+    const response = await fetch('stock.json')
+    const data = await response.json()
+    data.forEach((product) => {
+        let content = document.createElement("div")
+        content.className = "product-item"
+        content.innerHTML = `
+                <img src="${product.img}">
+                <h3>${product.nombre}</h3>
+                <p>${product.desc}</p>
+                <span class="price">$${product.precio}</span>
+            `
+        productContainer.append(content)
 
+        //creacion de boton comprar
+        let comprar = document.createElement("button")
+        comprar.innerText = "Comprar"
+        comprar.className = "comprar"
 
-formulario.inputNombre.addEventListener('keyup', (e) => {
-    let valorInput = e.target.value;
+        content.append(comprar)
 
-    formulario.inputNombre.value = valorInput.replace(/[0-9]/g, '');
-    nombreTarjeta.textContent = valorInput;
-    firma.textContent = valorInput;
-
-    if (valorInput == '') {
-        nombreTarjeta.textContent = 'Jhon Doe';
-    }
-
-    mostrarFrente();
-});
-
-
-formulario.selectMes.addEventListener('change', (e) => {
-    mesExpiracion.textContent = e.target.value;
-    mostrarFrente();
-});
-
-formulario.selectYear.addEventListener('change', (e) => {
-    yearExpiracion.textContent = e.target.value.slice(2);
-    mostrarFrente();
-});
-
-formulario.inputCCV.addEventListener('keyup', () => {
-    if (!tarjeta.classList.contains('active')) {
-        tarjeta.classList.toggle('active');
-    }
-
-    formulario.inputCCV.value = formulario.inputCCV.value
-    
-        .replace(/\s/g, '')
-        .replace(/\D/g, '');
-
-    ccv.textContent = formulario.inputCCV.value;
-});
-
-
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault()
-    if (numeroTarjeta.textContent === '#### #### #### ####' || nombreTarjeta.textContent === 'Nombre' || yearExpiracion.textContent === 'YY' || mesExpiracion.textContent === 'MM' || ccv.textContent === '') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Debe completar todos los datos!',
-        })
-    } else {
-        Swal.fire({
-            icon: 'success',
-            title: 'Su compra fue realizada con éxito!',
-            text: 'Gracias por elegirnos'
-        }).then(() => {
-            window.location.href = '/index.html'
-            carrito.splice(0, carrito.length)
-            localStorage.setItem("carritoJson", JSON.stringify(carrito));
+        //detecta click sobre el boton comprar y agrega el elemento al carrito
+        comprar.addEventListener("click", () => {
+            //validar cantidad de productos y si el producto existe en el carrito
+            const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id)
+            //suma un producto repetido al carrito
+            repeat ? carrito.find((prod) => {
+                if (prod.id === product.id) {
+                    prod.cantidad++
+                }
+            }) : carrito.push({
+                id: product.id,
+                img: product.img,
+                nombre: product.nombre,
+                precio: product.precio,
+                cantidad: product.cantidad
+            })
+            Toastify({
+                text: 'Producto agregado al carrito!',
+                duration: 3000,
+                gravity: "bottom",
+                style: {
+                    background: '#333'
+                }
+            }).showToast()
+            console.log(carrito)
             contadorCarrito()
-            pintarCarrito()
+            carritoStorage()
         })
-    }
-})
+    })
+}
+
+getProducts()
+
+//localStorage del carrito
+const carritoStorage = () => {
+    let carritoJson = JSON.stringify(carrito)
+    localStorage.setItem("carritoJson", carritoJson)
+}

@@ -1,0 +1,128 @@
+[
+    {
+        "id": "1",
+        "nombre": "Crop top Mariposa",
+        "tipo": "remeras y tops",
+        "desc": "Cropt top de algodon",
+        "img": "/img/remeras - tops/1.png",
+        "precio": 1000,
+        "cantidad": 1
+    },
+
+    {
+        "id": "2",
+        "nombre": "Musculosa Coffee",
+        "tipo": "remeras y tops",
+        "desc": "Musculosa de algodon",
+        "img": "/img/remeras - tops/3.png",
+        "precio": 900,
+        "cantidad": 1
+    },
+
+    {
+        "id": "3",
+        "nombre": "Remeron Lovers",
+        "tipo": "remeras y tops",
+        "desc": "Remerón de algodon",
+        "img": "/img/remeras - tops/20.png",
+        "precio": 1200,
+        "cantidad": 1
+    },
+
+    {
+        "id": "4",
+        "nombre": "Buzo Dance",
+        "tipo": "buzos",
+        "desc": "Buzo oversize",
+        "img": "/img/buzos/5.png",
+        "precio": 1500,
+        "cantidad": 1
+    },
+
+
+    {
+        "id": "5",
+        "nombre": "Buzo Tumba",
+        "tipo": "buzos",
+        "desc": "Buzo manga globo",
+        "img": "/img/buzos/7.png",
+        "precio": 1500,
+        "cantidad": 1
+    },
+
+
+    {
+        "id": "6",
+        "nombre": "Buzo Rose",
+        "tipo": "buzos",
+        "desc": "Buzo manga estampada",
+        "img": "/img/buzos/10.png",
+        "precio": 1800,
+        "cantidad": 1
+        
+    },
+
+    {
+        "id": "7",
+        "nombre": "Pollera Esotérica",
+        "tipo": "faldas y shorts",
+        "desc": "Pollera campana",
+        "img": "/img/faldas-shorts/18.png",
+        "precio": 1300,
+        "cantidad": 1
+    },
+
+
+    {
+        "id": "8",
+        "nombre": "Short Skull",
+        "tipo": "faldas y shorts",
+        "desc": "short de jean gris",
+        "img": "/img/faldas-shorts/26.png",
+        "precio": 1500,
+        "cantidad": 1
+    },
+
+
+    {
+        "id": "9",
+        "nombre": "Falda Snake",
+        "tipo": "faldas y shorts",
+        "desc": "Falda larga estampada",
+        "img": "/img/faldas-shorts/28.png",
+        "precio": 1800,
+        "cantidad": 1
+    },
+
+
+    {
+        "id": "10",
+        "nombre": "Pantalón Skull",
+        "tipo": "pantalones",
+        "desc": "Pantalon de lino estilo cargo",
+        "img": "/img/pantalones/12.png",
+        "precio": 2000,
+        "cantidad": 1
+    },
+
+
+    {
+        "id": "11",
+        "nombre": "Pantalón Disaster",
+        "tipo": "pantalones",
+        "desc": "Pantalon de jean",
+        "img": "/img/pantalones/14.png",
+        "precio": 2200,
+        "cantidad": 1
+    },
+
+    {
+        "id": "12",
+        "nombre": "Pantalón Look at me",
+        "tipo": "pantalones",
+        "desc": "Pantalon estampa lunar",
+        "img": "/img/pantalones/16.png",
+        "precio": 2500,
+        "cantidad": 1
+    }
+]
